@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Chat Images",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Show all images in a ChatGPT conversation.",
   "content_scripts": [{
     "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
