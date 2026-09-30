@@ -17,7 +17,7 @@ function show() {
   const srcs = collect();
   const o = document.createElement("div");
   o.style.cssText = "position:fixed;inset:0;z-index:2147483647;background:#000d;overflow:auto;padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;align-content:start";
-  o.onclick = e => { if (e.target === o) o.remove(); };
+  o.addEventListener("click", e => { if (e.target === o) o.remove(); });
   const hdr = document.createElement("div");
   hdr.style.cssText = "grid-column:1/-1;color:#fff;font:14px sans-serif";
   hdr.textContent = `${srcs.length} images — click background or Esc to close`;
@@ -38,5 +38,8 @@ function show() {
 const b = document.createElement("button");
 b.textContent = "🖼 Images";
 b.style.cssText = "position:fixed;bottom:16px;left:16px;z-index:2147483646;padding:8px 12px;border-radius:8px;border:0;background:#333;color:#fff;cursor:pointer";
-b.onclick = show;
+b.addEventListener("click", () => {
+  try { console.log("[chat-images] click"); show(); }
+  catch (e) { console.error("[chat-images]", e); alert("Chat Images error: " + e.message); }
+}, true);
 document.body.append(b);
