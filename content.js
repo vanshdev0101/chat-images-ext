@@ -42,7 +42,7 @@ b.textContent = "🖼 Images";
 b.style.cssText = "position:fixed;bottom:16px;left:16px;z-index:2147483646;padding:8px 12px;border-radius:8px;border:0;background:#333;color:#fff;cursor:pointer;pointer-events:auto !important";
 b.addEventListener("click", () => {
   try { console.log("[chat-images] click");
-    b.textContent = "…"; show(); }
+    b.textContent = "…"; setTimeout(() => b.textContent = "🖼 Images", 600); show(); }
   catch (e) { console.error("[chat-images]", e); alert("Chat Images error: " + e.message); }
 }, true);
 document.documentElement.append(b);
